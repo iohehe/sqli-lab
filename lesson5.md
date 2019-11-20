@@ -4,14 +4,30 @@ description: 注入结果反馈方法
 
 # lesson5-lesson10
 
+## 直接回显
+
+* union注入： 拼接union子句，并屏蔽主句内容，让子句内容回显到页面上。注意union字个数需要和主句select个数相同\(通过order by 猜字段范围技巧\)。
+* error-based： 报错注入， 通过报错信息查询内容直接回显到显示屏上。
+
+## 间接回显
+
+* boolean-based： 构造控制条件，基于显示屏上的布尔变化，逐位猜测数据库中的信息。
+* time-based：构造控制条件， 基于时间上的布尔变化，逐位猜测数据库中的信息。
+
+## 其他
+
+* DNS：通过dns查询侧信道，将查询内容放入查询域名中，通过间接回显渠道达到直接回显。
+
+## lesson5
+
 * source :
 
-  ```php
-  if(isset($_GET['id']))
-  {
-  $id=$_GET['id'];
-  }
-  ```
+```php
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+}
+```
 
 * sink:  
 
